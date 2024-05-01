@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6); 
+        }
+
+        .container{
+            position: relative;
+            max-width: 700px;
+            width: 100%;
+            background-color: #fff;
+            padding: 25px 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+        }
+
+        .container .form .title{
+            font-size: 24px; 
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            position: relative;
+            text-align: center;
+        }
+
+        .container .form .title::before{
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            height: 3px;
+            width: 30px;
+            border-radius: 5px;
+            background-color: #4070f4;
+        }
+
+        .container .form .input-field{
+            position: relative;
+            height: 50px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        h1{
+            text-align: center;
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        form{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 40px);
+            height: 100%;
+            padding-left: 40px;
+        }
+
+        .icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .showHidePw {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .checkbox-text {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .checkbox-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-content input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .checkbox-content label.text {
+            color: #333;
+            font-size: 14px;
+        }
+
+        a.text {
+            color: #4070f4;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .submit {
+            width: 100%;
+            padding: 10px 0;
+            border: none;
+            background-color: #4070f4;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .submit:hover {
+            background-color: #305fbe;
+        }
+    </style>
+
+    <title>Login</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="form">
+            <span class="title">Login</span>
+
+            <form action="#">
+                <div class="input-field">
+                    <input type="text" placeholder="Enter your email" required>
+                    <i class="uil uil-envelope icon"></i>
+                </div>
+                <div class="input-field">
+                    <input type="password" class="password" id="password" placeholder="Enter your password" required>
+                    <i class="uil uil-lock icon"></i>
+                    <i class="uil uil-eye-slash showHidePw" id="showHidePw"></i>
+                </div>
+
+                <div class="checkbox-text">
+                    <div class="checkbox-content">
+                        <input type="checkbox" id="logCheck">
+                        <label for="logCheck" class="text">Remember me</label>
+                    </div>
+                    <a href="#" class="text">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const passwordField = document.getElementById('password');
+        const showHidePw = document.getElementById('showHidePw');
+
+        showHidePw.addEventListener('click', () => {
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            showHidePw.classList.toggle('uil-eye');
+            showHidePw.classList.toggle('uil-eye-slash');
+        });
+    </script>
+</body>
+</html>
